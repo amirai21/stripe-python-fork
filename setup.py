@@ -13,22 +13,22 @@ with open(
     long_description = fp.read()
 
 version_contents = {}
-with open(os.path.join(here, "stripe", "version.py"), encoding="utf-8") as f:
+with open(os.path.join(here, "ai21", "version.py"), encoding="utf-8") as f:
     exec(f.read(), version_contents)
 
 setup(
-    name="stripe",
+    name="ai21",
     version=version_contents["VERSION"],
     description="Python bindings for the Stripe API",
     long_description=long_description,
     long_description_content_type="text/x-rst",
     author="Stripe",
-    author_email="support@stripe.com",
+    author_email="support@ai21.com",
     url="https://github.com/stripe/stripe-python",
     license="MIT",
-    keywords="stripe api payments",
+    keywords="ai21 api payments",
     packages=find_packages(exclude=["tests", "tests.*"]),
-    package_data={"stripe": ["data/ca-certificates.crt"]},
+    package_data={"ai21": ["data/ca-certificates.crt"]},
     zip_safe=False,
     install_requires=[
         'requests >= 2.20; python_version >= "3.0"',

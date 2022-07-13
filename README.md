@@ -23,7 +23,7 @@ You don't need this source code unless you want to modify the package. If you ju
 want to use the package, just run:
 
 ```sh
-pip install --upgrade stripe
+pip install --upgrade ai21
 ```
 
 Install from source with:
@@ -43,17 +43,18 @@ available in your [Stripe Dashboard][api-keys]. Set `stripe.api_key` to its
 value:
 
 ```python
-import stripe
-stripe.api_key = "sk_test_..."
+import ai21
+
+ai21.api_key = "sk_test_..."
 
 # list customers
-customers = stripe.Customer.list()
+customers = ai21.Customer.list()
 
 # print the first customer's email
 print(customers.data[0].email)
 
 # retrieve specific Customer
-customer = stripe.Customer.retrieve("cus_123456789")
+customer = ai21.Customer.retrieve("cus_123456789")
 
 # print that customer's email
 print(customer.email)
@@ -74,17 +75,17 @@ requests with a specific [Stripe Version](https://stripe.com/docs/api#versioning
 or as a [connected account](https://stripe.com/docs/connect/authentication#authentication-via-the-stripe-account-header):
 
 ```python
-import stripe
+import ai21
 
 # list customers
-stripe.Customer.list(
+ai21.Customer.list(
     api_key="sk_test_...",
     stripe_account="acct_...",
     stripe_version="2019-02-19"
 )
 
 # retrieve single customer
-stripe.Customer.retrieve(
+ai21.Customer.retrieve(
     "cus_123456789",
     api_key="sk_test_...",
     stripe_account="acct_...",
@@ -149,8 +150,8 @@ There are a few options for enabling it:
 2. Set `stripe.log`:
 
     ```python
-    import stripe
-    stripe.log = 'debug'
+    import ai21
+    ai21.log = 'debug'
     ```
 
 3. Enable it through Python's logging module:
@@ -158,7 +159,7 @@ There are a few options for enabling it:
     ```python
     import logging
     logging.basicConfig()
-    logging.getLogger('stripe').setLevel(logging.DEBUG)
+    logging.getLogger('ai21').setLevel(logging.DEBUG)
     ```
 
 ### Writing a Plugin
@@ -191,8 +192,8 @@ background terminal ([stripe-mock's README][stripe-mock] also contains
 instructions for installing via Homebrew and other methods):
 
 ```sh
-go install github.com/stripe/stripe-mock@latest
-stripe-mock
+go install github.com/ai21/ai21-mock@latest
+ai21-mock
 ```
 
 Run the following command to set up the development virtualenv:
